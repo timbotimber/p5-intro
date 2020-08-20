@@ -2,31 +2,32 @@ class Game {
   constructor() {
     this.x = 0;
     this.y = 0;
-    this.circleX = 200;
-    this.circleY = 100;
+    this.circleX = 50;
+    this.circleY = 50;
   }
 
   preloadGame() {
-    this.playerImg = loadImage("rtwo.png");
+    this.playerImg = loadImage("r2.png");
   }
 
   setupGame() {
+    console.log("Game setup");
     this.player = new Player();
-    this.player.img = this.playerImg;
+    this.player.image = this.playerImg;
   }
-  drawingGame() {
+
+  drawGame() {
+    console.log("Game draw");
     clear();
-    fill("red");
-    //this.x++;
-    rect(this.x, this.y, 100, 100);
+    fill("cyan");
+    rect(this.x, this.y, 50, 50);
     fill("yellow");
-    circle(this.circleX, this.circleY, 100);
     push();
-    strokeWeight(20); // Default
+    strokeWeight(10); // Default
 
     line(0, 0, 500, 500);
-
     pop();
+    circle(this.circleX, this.circleY, 50);
     this.player.drawPlayer();
   }
 }

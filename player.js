@@ -2,24 +2,22 @@ class Player {
   constructor() {
     this.x = 100;
     this.y = 100;
-    this.img;
+    this.image;
   }
 
-  drawPlayer() {
-    if (mouseIsPressed) {
-      this.x = 0;
-      this.y = 0;
-    }
+  preloadPlayer() {}
 
-    if (keyIsDown(87)) {
-      this.y -= 1;
-    } else if (keyIsDown(65)) {
-      this.x -= 1;
-    } else if (keyIsDown(83)) {
-      this.y += 1;
-    } else if (keyIsDown(68)) {
-      this.x += 1;
+  setupPlayer() {}
+
+  drawPlayer() {
+    if (keyIsDown(39)) {
+      this.x += 2;
     }
-    image(this.img, this.x, this.y, 200, 200);
+    if (keyIsDown(37)) {
+      this.x -= 2;
+    }
+    fill("red");
+    rect(this.x, this.y, 50, 50);
+    image(this.image, this.x, this.y, 50, 50);
   }
 }
